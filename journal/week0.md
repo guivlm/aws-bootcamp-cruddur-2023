@@ -35,6 +35,8 @@
 <br></br>
 <img width="800" alt="image" src="https://user-images.githubusercontent.com/20449025/218707071-ad41d090-a251-4e38-9ceb-5621430e4158.png">
 <br></br>
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/20449025/218715916-7eb5b719-588f-4290-8416-182314a597d1.png">
+<br></br>
 8 - Use Cloud Shell:
 <br></br>
 <img width="800" alt="image" src="https://user-images.githubusercontent.com/20449025/218701249-a81b8103-7658-4705-b588-4722ff274d25.png">
