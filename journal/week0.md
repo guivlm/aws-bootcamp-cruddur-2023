@@ -49,13 +49,17 @@
 <br></br>
 
 - Open a support ticket and request a service limit:
-(On this case, I've logged a support ticket due to overcharging)
+10 - (On this case, I've logged a support ticket due to overcharging)
 <br></br>
 <img width="800" alt="image" src="https://user-images.githubusercontent.com/20449025/218710428-c5b46bcb-8672-48fd-8a67-64b48763fbec.png">
 <br></br>
 
 -Create an architectural diagram (to the best of your ability) the CI/CD logical pipeline in Lucid Charts
-
+<br></br>
+11 - Conceptual Diagram
+<br></br>
+<img width="2488" alt="image" src="https://user-images.githubusercontent.com/20449025/219007769-f395df61-44bb-46b2-bac2-8a2a2fb53f55.png">
+<br></br>
 
 Review all the questions of each pillars in the Well Architected Tool (No specialized lens)
 
