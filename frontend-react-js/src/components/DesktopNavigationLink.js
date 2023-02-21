@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import {ReactComponent as HomeIcon} from './svg/home.svg';
 import {ReactComponent as NotificationsIcon} from './svg/notifications.svg';
 import {ReactComponent as ProfileIcon} from './svg/profile.svg';

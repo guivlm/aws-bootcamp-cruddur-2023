@@ -1,4 +1,5 @@
 import './DesktopSidebar.css';
+import React from "react";
 import Search from '../components/Search';
 import TrendingSection from '../components/TrendingsSection'
 import SuggestedUsersSection from '../components/SuggestedUsersSection'
