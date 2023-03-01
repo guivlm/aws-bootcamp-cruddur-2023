@@ -24,13 +24,18 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
 
 # X-RAY -----------
-# from aws_xray_sdk.core import xray_recorder
-# from aws_xray_sdk.ext.flask.middleware #import XRayMiddleware
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
 # CloudWatch Logs -----------
-import watchtower
-import logging
-from time import strftime
+#import watchtower
+#import logging
+#from time import strftime
+
+# Rollbar  -----------
+import rollbar
+import rollbar.contrib.flask
+from flask import got_request_exception
 
 # Configuring Logger to Use CloudWatch
 # LOGGER = logging.getLogger(__name__)
@@ -49,8 +54,8 @@ provider.add_span_processor(processor)
 
 # X-RAY
 # Initialize tracing and an exporter that can send data to AWS X-Ray
-# xray_url = os.getenv("AWS_XRAY_URL")
-# xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
+xray_url = os.getenv("AWS_XRAY_URL")
+xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
 # Show this in the logs within the backend-flask app (STDOUT)
 simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
@@ -61,7 +66,6 @@ tracer = trace.get_tracer(__name__)
 
 # X-RAY
 app = Flask(__name__)
-
 XRayMiddleware(app, xray_recorder)
 
 # Honeycomb
@@ -88,6 +92,28 @@ cors = CORS(
 #                 request.method, request.scheme, request.full_path, response.status)
 #    return response
 
+# Rollbar  -----------
+rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
+@app.before_first_request
+def init_rollbar():
+    """init rollbar module"""
+    rollbar.init(
+        # access token
+        rollbar_access_token,
+        # environment name
+        'production',
+        # server root directory, makes tracebacks prettier
+        root=os.path.dirname(os.path.realpath(__file__)),
+        # flask already sets up logging
+        allow_logging_basic_config=False)
+
+    # send exceptions from `app` to rollbar, using flask's signal system.
+    got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
+
+@app.route('/rollbar/test')
+def rollbar_test():
+    rollbar.report_message('Hello World!', 'warning')
+    return "Hello World!"
 
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
