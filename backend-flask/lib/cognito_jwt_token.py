@@ -3,6 +3,8 @@ import requests
 from jose import jwk, jwt
 from jose.exceptions import JOSEError
 from jose.utils import base64url_decode
+import os
+import sys
 
 class FlaskAWSCognitoError(Exception):
   pass
@@ -33,7 +35,10 @@ class CognitoJwtToken:
 
 
     def _load_jwk_keys(self):
+        # aws_region = os.getenv("REACT_APP_AWS_PROJECT_REGION")
+        # aws_user_pool_id = os.getenv("REACT_APP_AWS_USER_POOLS_ID")
         # keys_url = f"https://cognito-idp.{self.region}.amazonaws.com/{self.user_pool_id}/.well-known/jwks.json"
+        # keys_url = f"https://cognito-idp." + aws_region + ".amazonaws.com/" + aws_user_pool_id + "/.well-known/jwks.json"
         keys_url = f"https://cognito-idp.sa-east-1.amazonaws.com/sa-east-1_VLXbHlpRd/.well-known/jwks.json"
         try:
             response = self.request_client(keys_url)
