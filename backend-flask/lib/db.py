@@ -20,4 +20,3 @@ def query_wrap_array(template):
   ) array_row);
   """
   return sql
-
