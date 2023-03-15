@@ -1,4 +1,5 @@
 {
     "python.analysis.typeCheckingMode": "basic",
-    "remote.autoForwardPorts": true
+    "remote.autoForwardPorts": true,
+    "editor.renderWhitespace": "all"
 }
