@@ -17,7 +17,8 @@ export default function ActivityForm(props) {
   const onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities`
+      // const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities`
+      const backend_url = 'https://4567-guivlm-awsbootcampcrudd-tmwsk5ubpf9.ws-us90.gitpod.io/api/activities'
       console.log('onsubmit payload', message)
       const res = await fetch(backend_url, {
         method: "POST",
@@ -26,6 +27,7 @@ export default function ActivityForm(props) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          user_handle: props.user_handle.handle,
           message: message,
           ttl: ttl
         }),
