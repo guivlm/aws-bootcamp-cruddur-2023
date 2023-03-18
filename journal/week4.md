@@ -19,12 +19,6 @@
 
 ---
 
-### Write a Postgres adapter
-
-<img width="800" alt="image" src="./week-4-assets/.png">
-
----
-
 ### Write a DDL (for creating schema)
 
 <img width="800" alt="image" src="./week-4-assets/Screenshot 2023-03-17 at 20.29.13.png">
