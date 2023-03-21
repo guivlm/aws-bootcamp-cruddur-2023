@@ -18,7 +18,7 @@ export default function ActivityForm(props) {
     event.preventDefault();
     try {
       const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities`
-      // const backend_url = 'https://4567-guivlm-awsbootcampcrudd-hbpuz0ret0a.ws-us90.gitpod.io/api/activities'
+      // const backend_url = 'https://4567-guivlm-awsbootcampcrudd-cxl5o3ugsi4.ws-us90.gitpod.io/api/activities'
       console.log('onsubmit payload', message)
       const res = await fetch(backend_url, {
         method: "POST",
