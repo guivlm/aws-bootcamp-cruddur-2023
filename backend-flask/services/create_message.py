@@ -31,7 +31,7 @@ class CreateMessage:
     if model['errors']:
       # return what we provided
       model['data'] = {
-        'display_name': 'Andrew Brown',
+        'display_name': 'guivlm',
         'handle':  user_sender_handle,
         'message': message
       }
@@ -40,7 +40,11 @@ class CreateMessage:
 
       if user_receiver_handle == None:
         rev_handle = ''
+        print('======== rev_handle empty')
       else:
+        print('======== rev_handle else')
+        print(rev_handle)
+
         rev_handle = user_receiver_handle
       users = db.query_array_json(sql,{
         'cognito_user_id': cognito_user_id,
@@ -60,6 +64,7 @@ class CreateMessage:
       ddb = Ddb.client()
 
       if (mode == "update"):
+        print('if == update')
         data = Ddb.create_message(
           client=ddb,
           message_group_uuid=message_group_uuid,
@@ -68,7 +73,10 @@ class CreateMessage:
           my_user_display_name=my_user['display_name'],
           my_user_handle=my_user['handle']
         )
+        print('data: ')
+        print(data)
       elif (mode == "create"):
+        print('if == create')
         data = Ddb.create_message_group(
           client=ddb,
           message=message,
@@ -79,5 +87,9 @@ class CreateMessage:
           other_user_display_name=other_user['display_name'],
           other_user_handle=other_user['handle']
         )
+      print('data: ')
+      print(data)
       model['data'] = data
+      
+
     return model
