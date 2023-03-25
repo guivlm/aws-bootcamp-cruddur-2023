@@ -12,3 +12,4 @@ rollbar
 Flask-AwsCognito
 psycopg[binary]
 psycopg[pool]
+boto3
