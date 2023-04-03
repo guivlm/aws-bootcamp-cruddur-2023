@@ -12,10 +12,12 @@ echo $seed_path
 
 if [ "$1" = "prod" ]; then
   echo "using production"
-  URL=$PROD_CONNECTION_URL
+  URL="postgresql://cruddurroot:goodDatabasePassword1@cruddur-db-instance.cmy8pv6hu6oh.sa-east-1.rds.amazonaws.com:5432/cruddur"
+  echo "$URL"
 else
   echo "Running in development mode"
   URL=$CONNECTION_URL
+  echo "$URL"
 fi
 
 
