@@ -4,11 +4,13 @@ import psycopg
 import os
 import sys
 
-connection_url = os.getenv("CONNECTION_URL")
+# connection_url = os.getenv("CONNECTION_URL")
+connection_url = "postgresql://cruddurroot:goodDatabasePassword1@cruddur-db-instance.cmy8pv6hu6oh.sa-east-1.rds.amazonaws.com:5432/cruddur"
 
 conn = None
 try:
   print('attempting connection')
+  print('connection_url: ', connection_url)
   conn = psycopg.connect(connection_url)
   print("Connection successful!")
 except psycopg.Error as e:
