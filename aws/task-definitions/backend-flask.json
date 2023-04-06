@@ -44,8 +44,8 @@
           {"name": "OTEL_EXPORTER_OTLP_ENDPOINT", "value": "https://api.honeycomb.io"},
           {"name": "AWS_COGNITO_USER_POOL_ID", "value": "sa-east-1_VLXbHlpRd"},
           {"name": "AWS_COGNITO_USER_POOL_CLIENT_ID", "value": "25h0oufj09evnnh5ivl0lv8jjv"},
-          {"name": "FRONTEND_URL", "value": "*"},
-          {"name": "BACKEND_URL", "value": "*"},
+          {"name": "FRONTEND_URL", "value": "guivlm.com"},
+          {"name": "BACKEND_URL", "value": "api.guivlm.com"},
           {"name": "AWS_DEFAULT_REGION", "value": "sa-east-1"}
         ],
         "secrets": [
